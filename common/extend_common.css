@@ -1,0 +1,565 @@
+/* ----------------------------------
+
+Main CSS file for pcwaishe
+(C) Singcere! Inc.
+http://www.singcere.net
+Created & Modified by Sing_did, Dream.
+
+-------------------------------------*/
+
+/* All
+----------------------------------------------------------------------------------------------------*/
+.gray {
+	color: gray;
+}
+
+.mr5 {
+	margin-right: 5px;
+}
+
+.mr10 {
+	margin-right: 10px;
+}
+
+.ie6 body {
+	background-image: none;
+}
+
+/* All end*/
+
+/* Header
+----------------------------------------------------------------------------------------------------*/
+.ie6 .logo, .ie7 .logo {
+	display: block;
+	float: left;
+}
+
+.y .l_info {
+}
+
+#diy-tg_menu ul li a {
+	color: #000;
+}
+
+.backg {
+	position: absolute;
+	right: 14px;
+	top: -12px;
+	background: url({STYLEIMGDIR}image/icon.png);
+	overflow: hidden;
+	padding: 4px 0 0 4px;
+	width: 46px;
+	height: 46px;
+}
+
+.backg a img {
+	width: 42px;
+	height: 42px;
+}
+
+.backg a {
+	background: url({STYLEIMGDIR}image/iconshadow.png) 0 0;
+	width: 42px;
+	height: 42px;
+	display: block;
+}
+
+#header {
+	border-top: 1px solid #000
+}
+
+#head, .main-wrap, #footer, #searchA, #navA, #navB, .top, #ft {
+	width: 1170px;
+	margin: 0 auto;
+}
+
+#ft {
+	width: 1140px;
+}
+
+#head {
+	background: url({STYLEIMGDIR}image/topbar.png) right top no-repeat
+}
+
+.l_shadow {
+	background: url({STYLEIMGDIR}image/l_shadow.png) left top repeat-y;
+	padding-left: 5px;
+}
+
+.r_shadow {
+	background: url({STYLEIMGDIR}image/r_shadow.png) right top repeat-y;
+	padding-right: 5px;
+}
+
+#wp {
+	background: #fff url({STYLEIMGDIR}image/infobg.png) 0 0;
+	_background: #fff;
+	padding: 0 10px 10px 10px;
+	border-top: 1px solid #000
+}
+
+#myprompt.new {
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+.login {
+	margin: 9px 20px 0 0;
+	padding-right: 10px;
+	float: right;
+}
+
+.login, .login a {
+	color: #fff
+}
+
+.login a.b {
+	color: #fe0
+}
+
+.login dt {
+	position: absolute;
+	right: 14px;
+	bottom: -37px;
+	_bottom: 5px;
+	width: 46px;
+	height: 46px;
+	overflow: hidden;
+	padding: 4px 0 0 4px;
+	background: url({STYLEIMGDIR}image/icon.png);
+}
+
+.login dt a {
+	display: block;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #000
+}
+
+.login dt img, .login dt a span {
+	width: 40px;
+	height: 40px;
+}
+
+.login dt a span {
+	background: url({STYLEIMGDIR}image/iconshadow.png) 0 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#diy-tg_menu {
+	margin-left: -18px;
+	line-height: 24px;
+}
+
+#scrollBar a {
+	background: url({STYLEIMGDIR}image/top.png) no-repeat;
+	width: 22px;
+	height: 56px;
+	filter: alpha(opacity = 60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}
+
+#scrollBar a:hover {
+	filter: alpha(opacity = 99);
+	-moz-opacity: 0.99;
+	opacity: 0.99;
+}
+
+#navA {
+	height: 45px;
+	position: relative;
+}
+
+.navA, .navAL, .navAR, .navA li, .navA li a, #td_mymenu {
+	background: url({STYLEIMGDIR}image/navA.png) 999em 999em no-repeat;
+}
+
+.navAL, .navAR {
+	width: 10px;
+	height: 45px;
+}
+
+.navAL {
+	background-position: 0 -90px;
+	_margin-right: -3px;
+}
+
+.navAR {
+	background-position: 0 -180px;
+	_margin-left: -3px;
+}
+
+.navA {
+	background-position: 0 -135px;
+	height: 45px;
+	background-repeat: repeat-x;
+	overflow: hidden;
+}
+
+.navA ul {
+	font-size: 14px;
+	overflow: hidden;
+}
+
+.navA li {
+	float: left;
+	margin-left: -2px;
+	background-position: 0 -45px;
+	padding-left: 2px;
+}
+
+.navA li a {
+	float: left;
+	color: #ffffff;
+	padding: 0 25px;
+	height: 45px;
+	line-height: 50px;
+	outline: none;
+	font-weight: 700;
+	text-shadow: 1px 1px 0px #000;
+}
+
+.navA li a span {
+	display: none;
+}
+
+.navA li a:hover {
+	text-decoration: none;
+	color: #ffd306;
+}
+
+.navA .current a, .navA .current:hover a, .navA .current a:hover {
+	background-position: center top;
+	display: inline;
+	text-decoration: none;
+	color: #ffd306
+}
+
+#td_mymenu {
+	background-position: -30px -180px;
+	cursor: pointer;
+	float: right;
+	width: 82px;
+	color: #fff;
+	height: 27px;
+	overflow: hidden;
+	line-height: 27px;
+	margin: 11px 62px 0 0;
+	_display: inline
+}
+
+/* Header end*/
+
+/* Search
+----------------------------------------------------------------------------------------------------*/
+#scbar {
+	padding: 6px 0 0 0;
+	width: 205px;
+	overflow: hidden;
+	float: right;
+	content: ' 20';
+	display: block;
+	clear: both;
+	border: none;
+	border-width: medium;
+	line-height: inherit;
+	background: none;
+}
+
+.scbar_type_td {
+	float: left;
+	border: 0;
+	margin-right: 4px;
+	width: 46px;
+	background: none;
+}
+
+#scbar_type {
+	display: block;
+	padding: 0 12px 0 8px;
+	height: 24px;
+	line-height: 24px;
+	cursor: pointer;
+	color: black;
+	text-shadow: 1px 1px 0px #DDD;
+	text-align: inherit;
+	background: none;
+	white-space: inherit;
+	font-size: 12px !important
+}
+
+.scbar_txt_td {
+	width: 103px;
+	float: left;
+	height: 20px;
+	padding: 4px 5px 0;
+	overflow: hidden;
+	background: none;
+}
+
+#scbar_txt {
+	border: 0;
+	background: none;
+	color: #777;
+	padding: 0;
+	height: 16px;
+	line-height: 16px;
+	font-size: 12px;
+	width: 100%;
+	float: left;
+	margin: 0;
+	color: inherit;
+}
+
+.scbar_btn_td {
+	width: inherit;
+	background: none;
+}
+
+#scbar_btn {
+	width: 25px;
+	height: 25px;
+	border: 0 none;
+	line-height: 25px;
+	text-indent: 99em;
+	background: none;
+	cursor: pointer;
+	float: left;
+	box-shadow: none;
+}
+
+#qmenu {
+	background: none;
+}
+
+#scbar_type_menu {
+	opacity: 0.6;
+	border: 1px solid #999;
+	background: white;
+	margin-top: inherit;
+	padding: inherit;
+}
+
+#scbar_type_menu li a:hover {
+	background: black;
+	color: white;
+}
+
+/* Search end*/
+
+/* Footer
+----------------------------------------------------------------------------------------------------*/
+#ft a {
+	color: #999;
+}
+
+#ft {
+	border-top: none;
+	padding-bottom: 0;
+}
+
+#footA, .footA, .footAL, .footAR {
+	height: 46px;
+	background: url({STYLEIMGDIR}image/footA.png) 999em 999em no-repeat;
+	overflow: hidden
+}
+
+.footAL, .footAR {
+	width: 10px;
+	height: 46px;
+	_height: 46px;
+}
+
+.footAL {
+	background-position: 0 -46px;
+	_margin-right: -3px;
+}
+
+.footAR {
+	background-position: 0 0;
+	_margin-left: -3px;
+}
+
+.footA {
+	background-position: 0 -92px;
+	height: 46px;
+	overflow: hidden;
+	background-repeat: repeat-x;
+}
+
+.bottom {
+	line-height: 32px;
+	margin: 5px 10px 0;
+	text-shadow: 1px 1px 0px #e2e9ec;
+}
+
+#scrolltop {
+	width: 22px;
+	height: 56px;
+	background: url({STYLEIMGDIR}image/top.png);
+}
+
+/* Footer end*/
+
+/* Botton
+----------------------------------------------------------------------------------------------------*/
+a.color_button1, button.color_button1, button.pn, a.color_button2, button.color_button2, a.color_button3, button.color_button3 {
+	display: inline-block;
+	padding: 0 0 0 5px;
+	text-decoration: none;
+	font-weight: normal;
+	border: 0;
+	color: #fff;
+	cursor: pointer;
+}
+
+a.color_button1, a.color_button1 span, button.color_button1, button.color_button1 span, button.pn, button.pn span, button.pn strong, button.pn em, a.color_button2, a.color_button2 span, button.color_button2, button.color_button2 span, a.color_button3, a.color_button3 span, button.color_button3, button.color_button3 span {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+a.color_button1, button.color_button1, button.pn {
+	background: url({STYLEIMGDIR}/btn/btn1_left.png) no-repeat 0 0;
+	font-size: 12px;
+	line-height: 29px;
+	height: 29px;
+	margin-left: 0;
+}
+
+a.color_button1 span, button.color_button1 span, button.pn span, button.pn strong, button.pn em {
+	background: url({STYLEIMGDIR}/btn/btn1_right.png) no-repeat right 0;
+	padding: 0px 10px 0px 7px;
+	line-height: 29px !important;
+	font-weight: normal;
+	*height: 29px;
+}
+
+a:hover.color_button1, button:hover.color_button1, .a .color_button1, button:hover.pn {
+	background-image: url({STYLEIMGDIR}/btn/btn1_left-hover.png);
+	background-position: 0 0;
+	boder: none;
+}
+
+a:hover.color_button1 span, button:hover.color_button1 span, .a .color_button1 span, button:hover.pn span, button:hover.pn strong, button:hover.pn em {
+	background-image: url({STYLEIMGDIR}/btn/btn1_right-hover.png);
+	background-position: right 0;
+	*color: #fff;
+}
+
+/* 按钮颜色 */
+a.rust, a:hover.rust, button.rust, button:hover.rust {
+
+background-color: {
+	NOTICETEXT
+}
+
+;
+	}
+
+a.black, a:hover.black, button.black, button:hover.black, button.pn, button:hover.pn {
+	background-color: #9b8666;
+}
+
+.ie6 button.pn, .ie6 button.pn strong, .ie6 button.pn span, .ie6 button.pn em {
+	background: #9b8666;
+}
+
+.ie7 button.pn strong, .ie7 button.pn span, .ie7 button.pn em {
+	margin-left: -10px;
+	margin-right: -9px;
+	min-width: 30px;
+	padding: 0 8px 0 7px;
+}
+
+/*按钮重定义*/
+.pn {
+	height: 29px;
+	box-shadow: none;
+}
+
+.pnc, a.pnc {
+	border: none;
+}
+
+.pnpost .pn {
+	height: 29px;
+}
+
+.tb .o {
+	border-radius: 3px;
+}
+
+/* Botton End*/
+
+.fl, .fl .bm, .bm {
+	border-radius: 6px 6px 0 0;
+}
+
+.fl {
+	border-top: 1px solid #CCC;
+}
+
+.bm_h, .fl .bm_h, .bml .bm_h {
+	background: #E5E5E5 url({STYLEIMGDIR}image/rep.gif) top left repeat-x;
+	color: #333;
+	font-weight: 100;
+	border-bottom: 1px solid #CCC;
+	border-top: none;
+	height: 33px;
+	line-height: 33px;
+	overflow: hidden;
+	padding: 2px 15px;
+	border-radius: 6px 6px 0 0;
+	text-shadow: 1px 1px 0 white;
+}
+
+/* Else
+----------------------------------------------------------------------------------------------------*/
+.pgs #newspecial, .pgs #newspecialtmp, .pgs #post_reply, .pgs #post_replytmp {
+	width: 80px;
+	height: 33px;
+	display: block;
+}
+
+.pgs #newspecial img, .pgs #newspecialtmp img, .pgs #post_reply img, .pgs #post_replytmp img {
+	display: none;
+}
+
+.pgs #newspecial, .pgs #newspecialtmp {
+	background: url("{STYLEIMGDIR}/pn_post.png") no-repeat 0 0;
+}
+
+.pgs #post_reply, .pgs #post_replytmp {
+	background: url("{STYLEIMGDIR}/pn_repost.png") no-repeat 0 0;
+}
+
+#pt {
+	margin: 5px 0;
+}
+
+.tb {
+	padding-left: 0;
+}
+
+.pn {
+	margin-left: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	font-family: 'Microsoft YaHei';
+	font-size: 16px;
+}
+
+.xs2 {
+	font-size: 16px !important;
+}
+
+.tb a {
+	border-radius: 5px 5px 0 0;
+}
+
+/* Else end*/

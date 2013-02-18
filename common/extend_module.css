@@ -1,0 +1,10 @@
+/* Append by Singcere!*/
+
+/** forum::index **/
+.bm_h strong { font-weight:normal;}
+/** end **/
+
+/** forum::forumdisplay **/
+.tl .th { background: #E5E5E5 url({STYLEIMGDIR}image/rep.gif) top left repeat-x; color: #333; font-weight: 100; border-bottom: 1px solid #CCC; border-top: none; overflow: hidden; padding: 2px 15px; border-radius: 6px 6px 0 0; text-shadow: 1px 1px 0 white; margin-top:0; }
+/** end **/
+

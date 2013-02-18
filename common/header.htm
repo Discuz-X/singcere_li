@@ -1,0 +1,218 @@
+<!--{subtemplate common/header_common}-->
+	<meta name="application-name" content="$_G['setting']['bbname']" />
+	<meta name="msapplication-tooltip" content="$_G['setting']['bbname']" />
+	<!--{if $_G['setting']['portalstatus']}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][1]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['portal']) ? 'http://'.$_G['setting']['domain']['app']['portal'] : $_G[siteurl].'portal.php'};icon-uri={$_G[siteurl]}{IMGDIR}/portal.ico" /><!--{/if}-->
+	<meta name="msapplication-task" content="name=$_G['setting']['navs'][2]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['forum']) ? 'http://'.$_G['setting']['domain']['app']['forum'] : $_G[siteurl].'forum.php'};icon-uri={$_G[siteurl]}{IMGDIR}/bbs.ico" />
+	<!--{if $_G['setting']['groupstatus']}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][3]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['group']) ? 'http://'.$_G['setting']['domain']['app']['group'] : $_G[siteurl].'group.php'};icon-uri={$_G[siteurl]}{IMGDIR}/group.ico" /><!--{/if}-->
+	<!--{if helper_access::check_module('feed')}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][4]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['home']) ? 'http://'.$_G['setting']['domain']['app']['home'] : $_G[siteurl].'home.php'};icon-uri={$_G[siteurl]}{IMGDIR}/home.ico" /><!--{/if}-->
+	<!--{if $_G['basescript'] == 'forum' && $_G['setting']['archiver']}-->
+		<link rel="archives" title="$_G['setting']['bbname']" href="{$_G[siteurl]}archiver/" />
+	<!--{/if}-->
+	<!--{if !empty($rsshead)}-->$rsshead<!--{/if}-->
+	<!--{if widthauto()}-->
+		<link rel="stylesheet" id="css_widthauto" type="text/css" href="data/cache/style_{STYLEID}_widthauto.css?{VERHASH}" />
+		<script type="text/javascript">HTMLNODE.className += ' widthauto'</script>
+	<!--{/if}-->
+	<!--{if $_G['basescript'] == 'forum' || $_G['basescript'] == 'group'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}forum.js?{VERHASH}"></script>
+	<!--{elseif $_G['basescript'] == 'home' || $_G['basescript'] == 'userapp'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}home.js?{VERHASH}"></script>
+	<!--{elseif $_G['basescript'] == 'portal'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}portal.js?{VERHASH}"></script>
+	<!--{/if}-->
+	<!--{if $_G['basescript'] != 'portal' && $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}portal.js?{VERHASH}"></script>
+	<!--{/if}-->
+	<!--{if $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
+	<link rel="stylesheet" type="text/css" id="diy_common" href="data/cache/style_{STYLEID}_css_diy.css?{VERHASH}" />
+	<!--{/if}-->
+
+
+
+    <!--Append, Sing_did-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="template/singcere_li/src/js/DD_belatedPNG.js"></script>
+	<script type="text/javascript">
+	DD_belatedPNG.fix('#footA,.footA,.footAL,.footAR,#head,.l_shadow,.r_shadow,.navA,.navAL,.navAR,.navA li,.navA li a,#td_mymenu,.login dt,.login dt a span,#head img,.backg');
+	</script>
+    <![endif]-->
+    <!--Append, Sing_did-->
+
+
+
+</head>
+
+<body id="nv_{$_G[basescript]}" class="pg_{CURMODULE}{if $_G['basescript'] === 'portal' && CURMODULE === 'list' && !empty($cat)} {$cat['bodycss']}{/if}" onkeydown="if(event.keyCode==27) return false;">
+	<div id="append_parent"></div><div id="ajaxwaitid"></div>
+	<!--{if $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
+		<!--{template common/header_diy}-->
+	<!--{/if}-->
+	<!--{if check_diy_perm($topic)}-->
+		<!--{block diynav}-->
+			<a id="diy-tg" href="javascript:openDiy();" title="{lang open_diy}" class="xi1 xw1" onMouseOver="showMenu(this.id)"><img src="{STATICURL}image/diy/panel-toggle.png" alt="DIY" /></a>
+			<div id="diy-tg_menu" style="display: none;">
+				<ul>
+					<li><a href="javascript:saveUserdata('diy_advance_mode', '');openDiy();" class="xi2">{lang header_diy_mode_simple}</a></li>
+					<li><a href="javascript:saveUserdata('diy_advance_mode', '1');openDiy();" class="xi2">{lang header_diy_mode_adv}</a></li>
+				</ul>
+			</div>
+		<!--{/block}-->
+	<!--{/if}-->
+	<!--{if CURMODULE == 'topic' && $topic && empty($topic['useheader']) && check_diy_perm($topic)}-->
+		$diynav
+	<!--{/if}-->
+	<!--{if empty($topic) || $topic['useheader']}-->
+		<!--{if $_G['setting']['mobile']['allowmobile'] && (!$_G['setting']['cacheindexlife'] && !$_G['setting']['cachethreadon'] || $_G['uid']) && ($_GET['diy'] != 'yes' || !$_GET['inajax']) && ($_G['mobile'] != '' && $_G['cookie']['mobile'] == '' && $_GET['mobile'] != 'no')}-->
+			<div class="xi1 bm bm_c">
+			    {lang your_mobile_browser}<a href="{$_G['siteurl']}forum.php?mobile=yes">{lang go_to_mobile}</a> <span class="xg1">|</span> <a href="$_G['setting']['mobile']['nomobileurl']">{lang to_be_continue}</a>
+			</div>
+		<!--{/if}-->
+		<!--{if !IS_ROBOT}-->
+			<!--{if $_G['uid'] && !empty($_G['style']['extstyle'])}-->
+				<div id="sslct_menu" class="cl p_pop" style="display: none;">
+					<!--{if !$_G[style][defaultextstyle]}--><span class="sslct_btn" onClick="extstyle('')" title="{lang default}"><i></i></span><!--{/if}-->
+					<!--{loop $_G['style']['extstyle'] $extstyle}-->
+						<span class="sslct_btn" onClick="extstyle('$extstyle[0]')" title="$extstyle[1]"><i style='background:$extstyle[2]'></i></span>
+					<!--{/loop}-->
+				</div>
+			<!--{/if}-->
+
+				<div id="qmenu_menu" class="p_pop {if !$_G['uid']}blk{/if}" style="display: none;">
+					<!--{if $_G['uid']}-->
+					<ul>
+						<!--{loop $_G['setting']['mynavs'] $nav}-->
+							<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}-->
+								<li>$nav[code]</li>
+							<!--{/if}-->
+						<!--{/loop}-->
+					</ul>
+					<!--{elseif $_G[connectguest]}-->
+						<div class="ptm pbw hm">
+							{lang connect_fill_profile_to_visit}
+						</div>
+					<!--{else}-->
+						<div class="ptm pbw hm">
+							{lang my_nav_login}
+						</div>
+					<!--{/if}-->
+				</div>
+		<!--{/if}-->
+        
+        
+<div class="wrap">		
+<div id="header">
+  <div id="head" class="cc pr"> 
+<!--LOGO-->
+<!--{eval $mnid = getcurrentnav();}-->
+<!--{if !isset($_G['setting']['navlogos'][$mnid])}--><a class="logo" href="{if $_G['setting']['domain']['app']['default']}http://{$_G['setting']['domain']['app']['default']}/{else}./{/if}" title="$_G['setting']['bbname']">{$_G['style']['boardlogo']}</a><!--{else}-->$_G['setting']['navlogos'][$mnid]<!--{/if}-->
+
+
+  
+<!--Search-->
+<!--{subtemplate common/pubsearchform}-->
+
+
+
+<!--Member--> 
+<!--{if $_G['uid']}-->
+<dl class="login">
+  <!--{if check_diy_perm($topic)}--> 
+  $diynav 
+  <!--{/if}-->
+  <dd class="y">
+    <p class="l_info"> Hi~! <span id="td_userinfomore" style="padding:0 5px;"><a href="home.php?mod=space&uid=$_G[uid]" target="_blank" title="{lang visit_my_space}" class="b"><span>{$_G[member][username]}</span></a></span> <span class="mr5"></span>
+      <!--{hook/global_usernav_extra2}--> 
+      <a href="member.php?mod=logging&action=logout&formhash={FORMHASH}" class="mr5">{lang logout}</a> <span class="gray mr5">|</span> <a href="home.php?mod=space&do=pm" id="pm_ntc"{if $_G[member][newpm]}  class="mr5 new"{/if}>{lang pm_center}</a> <span class="gray mr5">|</span> <a href="home.php?mod=space&do=notice" id="myprompt"{if $_G[member][newprompt]} class="new"{/if}>{lang remind}<!--{if $_G[member][newprompt]}-->($_G[member][newprompt])<!--{/if}--></a> <span class="gray mr5">|</span>
+      <!--{hook/global_usernav_extra1}--> 
+      <span id="td_profile" class="pd5"><!--{hook/global_usernav_extra4}--><a href="home.php?mod=spacecp"><span>{lang setup}</span></a></span> 
+      <!--{if ($_G['group']['allowmanagearticle'] || $_G['group']['allowpostarticle'] || $_G['group']['allowdiy'] || getstatus($_G['member']['allowadmincp'], 4) || getstatus($_G['member']['allowadmincp'], 6) || getstatus($_G['member']['allowadmincp'], 2) || getstatus($_G['member']['allowadmincp'], 3))}--> 
+      <span class="gray mr5">|</span><a href="portal.php?mod=portalcp"><!--{if $_G['setting']['portalstatus'] }-->{lang portal_manage}<!--{else}-->{lang portal_block_manage}<!--{/if}--></a> 
+      <!--{/if}--> 
+      <!--{if $_G['uid'] && $_G['group']['radminid'] > 1}--> 
+      <span class="gray mr5">|</span><a href="forum.php?mod=modcp&fid=$_G[fid]" target="_blank">{lang forum_manager}</a> 
+      <!--{/if}--> 
+      <!--{if $_G['uid'] && $_G['adminid'] == 1 && $_G['setting']['cloud_status']}--> 
+      <span class="gray mr5">|</span><a href="admin.php?frames=yes&action=cloud&operation=applist" target="_blank">{lang cloudcp}</a> 
+      <!--{/if}--> 
+      <!--{if $_G['uid'] && getstatus($_G['member']['allowadmincp'], 1)}--> 
+      <span class="gray mr5">|</span><a href="admin.php" target="_blank">{lang admincp}</a> 
+      <!--{/if}--> 
+    </p>
+  </dd>
+</dl>
+<!--{elseif !empty($_G['cookie']['loginuser'])}-->
+<p> <strong><a id="loginuser" class="noborder"><!--{echo dhtmlspecialchars($_G['cookie']['loginuser'])}--></a></strong> <span class="pipe">|</span><a href="member.php?mod=logging&action=login" onClick="showWindow('login', this.href)">{lang activation}</a> <span class="pipe">|</span><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a> </p>
+<!--{elseif !$_G[connectguest]}-->
+<dl class="login">
+  <dd class="fr">
+    <p class="l_info">欢迎莅临{$_G['setting']['bbname']}，你可以 <a href="javascript:;" onClick="showWindow('login', 'member.php?mod=logging&amp;action=login')" style="color:#FFD306; margin:0 5px">登录</a> 或 <a href="member.php?mod=register" style="color:#FFD306; margin-left:5px;">注册</a></p>
+  </dd>
+  <dd class="fr"> </dd>
+</dl>
+<!--{else}-->
+<div id="um">
+  <div class="avt y"><!--{avatar(0,small)}--></div>
+  <p> <strong class="vwmy qq">{$_G[member][username]}</strong> 
+    <!--{hook/global_usernav_extra1}--> 
+    <span class="pipe">|</span><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a> </p>
+  <p> <a href="home.php?mod=spacecp&ac=credit&showcredit=1">{lang credits}: 0</a> <span class="pipe">|</span>{lang usergroup}: $_G[group][grouptitle] </p>
+</div>
+<!--{/if}-->
+  </div>
+<!--{ad/headerbanner/wp a_h}-->
+
+
+
+<!--Nav--> 
+<div class="nav_wrap">
+<div id="navA">
+  <div class="navAL z">&nbsp;</div>
+  <div class="navAR y">&nbsp;</div>
+  <div class="navA">
+    <div id="td_mymenu"> <a href="javascript:;" id="qmenu" onMouseOver="showMenu({'ctrlid':'qmenu','pos':'34!','ctrlclass':'a','duration':2});"></a></div>
+    <ul class="cc">
+    <!--{loop $_G['setting']['navs'] $nav}-->
+      <!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}--><li {if $mnid == $nav[navid]}class="current" {/if}$nav[nav]></li><!--{/if}-->
+      <!--{/loop}-->
+    </ul>
+    <!--{hook/global_nav_extra}-->
+  </div>
+  <div class="backg"><a href="home.php?mod=space&uid=$_G[uid]"><!--{avatar($_G[uid],small)}--></a></div>
+</div>
+</div>
+
+
+</div>
+        
+        
+
+<!--{hook/global_header}-->
+	<!--{/if}-->
+
+    <div class="main-wrap">
+    <div class="l_shadow">
+    <div class="r_shadow">
+	<div id="wp" class="wp">
+    
+    
+            <!--{if !empty($_G['setting']['plugins']['jsmenu'])}-->
+            <ul class="p_pop h_pop" id="plugin_menu" style="display: none">
+            <!--{loop $_G['setting']['plugins']['jsmenu'] $module}-->
+                 <!--{if !$module['adminid'] || ($module['adminid'] && $_G['adminid'] > 0 && $module['adminid'] >= $_G['adminid'])}-->
+                 <li>$module[url]</li>
+                 <!--{/if}-->
+            <!--{/loop}-->
+            </ul>
+            <!--{/if}-->
+            $_G[setting][menunavs]
+            <div id="mu" class="cl">
+            <!--{if $_G['setting']['subnavs']}-->
+                <!--{loop $_G[setting][subnavs] $navid $subnav}-->
+                    <!--{if $_G['setting']['navsubhover'] || $mnid == $navid}-->
+                    <ul class="cl {if $mnid == $navid}current{/if}" id="snav_$navid" style="display:{if $mnid != $navid}none{/if}">
+                    $subnav
+                    </ul>
+                    <!--{/if}-->
+                <!--{/loop}-->
+            <!--{/if}-->
+            </div>
